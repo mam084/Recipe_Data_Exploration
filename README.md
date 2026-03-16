@@ -39,8 +39,6 @@ In the interactions table, I converted dates to datetime and removed rows with `
 
 Below is the head of the cleaned recipe-level DataFrame.
 
-<div class="table-wrap">
-
 | id | name | num_ratings | log_num_ratings | minutes | log_minutes | n_steps | n_ingredients |
 |---|---|---|---|---|---|---|---|
 | 333281 | 1 brownies in the world    best ever | 1 | 0.693147 | 40 | 3.713572 | 10 | 9 |
@@ -49,13 +47,11 @@ Below is the head of the cleaned recipe-level DataFrame.
 | 286009 | millionaire pound cake | 1 | 0.693147 | 120 | 4.795791 | 7 | 7 |
 | 475785 | 2000 meatloaf | 2 | 1.098612 | 90 | 4.510860 | 17 | 13 |
 
-</div>
-
 ### Univariate analysis
 
 The popularity distribution is heavily right-skewed, so the log transform is useful. Even after aggregation to the recipe level, most recipes receive relatively few ratings while a much smaller set attracts substantially more engagement.
 
-<iframe class="plotly-frame" src="{{ '/assets/plots/univariate_popularity.html' | relative_url }}"></iframe>
+<iframe src="assets/plots/univariate_popularity.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Bivariate analysis
 
@@ -67,8 +63,6 @@ The scatterplot below compares ingredient count with log popularity. The relatio
 
 Grouping recipes into ingredient-count buckets shows that average popularity is somewhat higher for smaller ingredient lists, then tends to decline as recipes become more complex. The medians are low across all buckets, which reinforces that the overall popularity distribution is strongly skewed.
 
-<div class="table-wrap">
-
 | Ingredient bucket | Mean ratings | Median ratings | Count |
 |---|---|---|---|
 | 1-5 | 2.816718 | 2.0 | 14164 |
@@ -76,8 +70,6 @@ Grouping recipes into ingredient-count buckets shows that average popularity is 
 | 11-15 | 2.496317 | 1.0 | 22810 |
 | 16-20 | 2.431808 | 1.0 | 4502 |
 | 21-50 | 2.704246 | 1.0 | 683 |
-
-</div>
 
 A similar time-bucket summary shows that very short recipes have the highest average popularity, medium-length recipes trend slightly lower, and the longest recipes are more mixed.
 
