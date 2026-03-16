@@ -42,7 +42,7 @@ Below is the head of the cleaned recipe-level DataFrame.
 <div class="table-wrap">
 
 | id | name | num_ratings | log_num_ratings | minutes | log_minutes | n_steps | n_ingredients |
-|---:|---|---:|---:|---:|---:|---:|---:|
+|---|---|---|---|---|---|---|---|
 | 333281 | 1 brownies in the world    best ever | 1 | 0.693147 | 40 | 3.713572 | 10 | 9 |
 | 453467 | 1 in canada chocolate chip cookies | 1 | 0.693147 | 45 | 3.828641 | 12 | 11 |
 | 306168 | 412 broccoli casserole | 4 | 1.609438 | 40 | 3.713572 | 6 | 9 |
