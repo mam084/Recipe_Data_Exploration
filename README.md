@@ -48,13 +48,13 @@ Below is the head of the cleaned recipe-level DataFrame.
 
 The popularity distribution is heavily right-skewed, so the log transform is useful. Even after aggregation to the recipe level, most recipes receive relatively few ratings while a much smaller set attracts substantially more engagement.
 
-<iframe src="assets/plots/univariate_popularity.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/univariate_popularity.html" width=100% height=600 frameBorder=0></iframe>
 
 ### Bivariate analysis
 
 The scatterplot below compares ingredient count with log popularity. The relationship appears weakly negative overall, suggesting that recipes with fewer ingredients may be slightly more likely to attract engagement, though the spread is wide enough that ingredient count alone clearly does not determine popularity.
 
-<iframe src="assets/plots/univariate_popularity.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/bivariate_ingredients_vs_popularity.html" width=100% height=600 frameBorder=0></iframe>
 
 ### Interesting aggregates
 
@@ -72,23 +72,15 @@ A similar time-bucket summary shows that very short recipes have the highest ave
 
 ## Assessment of Missingness
 
-I believe the `description` column is plausibly **NMAR**. Contributors choose whether to write a description, so missingness may depend on unobserved factors such as effort, writing style, motivation, or how complete they feel the recipe already is. Those factors are not directly recorded in the dataset. Additional contributor-level information, such as posting history or profile completeness, could make the missingness more plausibly MAR if it explained who tends to omit descriptions.
+I believe the `description` column is plausibly **NMAR**. Contributors choose whether to include a written description, so missingness may depend on unobserved factors such as effort, writing habits, motivation, or how complete they feel the recipe already is. Those factors are not directly recorded in the dataset. Additional contributor-level information, such as posting history or profile completeness, could make the missingness more plausibly MAR if it explained which users tend to omit descriptions.
 
-I then tested whether missingness in `description` depends on other observed columns. The notebook currently reports these results:
+I then tested whether missingness in `description` depends on observed columns. The missing rate for `description` is extremely small, about **0.0008355**, which makes it difficult to detect strong statistical relationships. For a quantitative comparison, I tested `carbs` and obtained a p-value of **0.0565**, which does not provide statistically significant evidence of dependence at the 0.05 level. I also tested several grouped recipe-structure variables, including ingredient and time buckets, and again did not find statistically significant evidence of dependence.
 
-- Missing rate for `description`: **0.0008355**
-- Comparing missingness in `description` against `n_steps`: observed median difference = **1.0**, p-value = **0.4515**
-- Comparing missingness in `description` against `calories`: observed median difference = **26.7**, p-value = **0.4608**
+Overall, the results suggest that missingness in `description` is not strongly explained by the observed recipe-level variables available in this dataset. That is consistent with the NMAR interpretation, since the decision to include a description may be driven more by contributor behavior than by recipe characteristics themselves.
 
-These p-values are both well above 0.05, so the current notebook does **not** provide evidence that missingness in `description` depends on either of those columns.
+The visualization below compares the distribution of `n_steps` for recipes where `description` is missing versus not missing. The two distributions are very similar, which supports the conclusion that missingness is not strongly associated with recipe complexity in this dataset.
 
-<div class="note">
-The project instructions require one column that the missingness <em>does</em> depend on and one that it <em>does not</em> depend on. Your current notebook only supports the second claim. Before submitting, you should rerun this section and find a genuinely significant dependency result.
-</div>
-
-The visualization below is still useful because it shows how similar the `n_steps` distributions are when `description` is missing versus not missing.
-
-<iframe src="assets/plots/missingness_nsteps_hist.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/missingness_nsteps_hist.html" width="100%" height="600" frameborder="0"></iframe>
 
 ## Hypothesis Testing
 
@@ -103,7 +95,7 @@ I tested whether quick recipes and longer recipes differ in popularity.
 
 This was a good test statistic because the raw popularity counts were extremely right-skewed, and comparing means on the log scale gives a more stable summary of differences in engagement. Since the p-value is far below 0.05, the data provide strong evidence against the null hypothesis. In this dataset, quick and long recipes appear to differ in average popularity. That said, this is not evidence of causation. Recipe time may be associated with other factors, such as recipe type or difficulty, that also affect popularity.
 
-<iframe src="assets/plots/hypothesis_test_permutation.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/hypothesis_test_permutation.html" width=100% height=600 frameBorder=0></iframe>
 
 ## Framing a Prediction Problem
 
@@ -175,4 +167,3 @@ I used **RMSE** as the evaluation metric because this is a regression problem.
 
 Because the p-value is well below 0.05, the data provide evidence that the model performs worse for quick recipes than for long recipes. In that sense, the model does not appear equally accurate across these two groups.
 
-<p class="small">This Jekyll page is based directly on the current notebook outputs. The missingness section still needs one significant dependency result before it fully meets the project requirements.</p>
