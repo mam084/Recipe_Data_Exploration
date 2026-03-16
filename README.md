@@ -48,13 +48,13 @@ Below is the head of the cleaned recipe-level DataFrame.
 
 The popularity distribution is heavily right-skewed, so the log transform is useful. Even after aggregation to the recipe level, most recipes receive relatively few ratings while a much smaller set attracts substantially more engagement.
 
-<iframe src="assets/plots/univariate_popularity.html" width=100% height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/univariate_popularity.html" width="100%" height=600 frameBorder=0></iframe>
 
 ### Bivariate analysis
 
 The scatterplot below compares ingredient count with log popularity. The relationship appears weakly negative overall, suggesting that recipes with fewer ingredients may be slightly more likely to attract engagement, though the spread is wide enough that ingredient count alone clearly does not determine popularity.
 
-<iframe src="assets/plots/bivariate_ingredients_vs_popularity.html" width=100% height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/bivariate_ingredients_vs_popularity.html" width="100%" height=600 frameBorder=0></iframe>
 
 ### Interesting aggregates
 
@@ -95,7 +95,7 @@ I tested whether quick recipes and longer recipes differ in popularity.
 
 This was a good test statistic because the raw popularity counts were extremely right-skewed, and comparing means on the log scale gives a more stable summary of differences in engagement. Since the p-value is far below 0.05, the data provide strong evidence against the null hypothesis. In this dataset, quick and long recipes appear to differ in average popularity. That said, this is not evidence of causation. Recipe time may be associated with other factors, such as recipe type or difficulty, that also affect popularity.
 
-<iframe src="assets/plots/hypothesis_test_permutation.html" width=100% height=600 frameBorder=0></iframe>
+<iframe src="assets/plots/hypothesis_test_permutation.html" width="100%" height=600 frameBorder=0></iframe>
 
 ## Framing a Prediction Problem
 
