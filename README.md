@@ -70,7 +70,7 @@ Grouping recipes into ingredient-count buckets shows that average popularity is 
 <div class="table-wrap">
 
 | Ingredient bucket | Mean ratings | Median ratings | Count |
-|---|---:|---:|---:|
+|---|---|---|---|
 | 1-5 | 2.816718 | 2.0 | 14164 |
 | 6-10 | 2.637028 | 1.0 | 41623 |
 | 11-15 | 2.496317 | 1.0 | 22810 |
