@@ -1,8 +1,9 @@
 title: "From Prep Time to Popularity"
 description: "A data science project on what predicts recipe popularity."
 author: "Matthew Mitchell"
-theme: midnight
+remote_theme: pages-themes/midnight@v0.2.0
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 header_pages: []
