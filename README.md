@@ -1,9 +1,3 @@
----
-layout: default
-title: From Prep Time to Popularity
----
-
-
 # From Prep Time to Popularity
 
 **Matthew Mitchell**
