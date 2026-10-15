@@ -167,3 +167,9 @@ I used **RMSE** as the evaluation metric because this is a regression problem.
 
 Because the p-value is well below 0.05, the data provide evidence that the model performs worse for quick recipes than for long recipes. In that sense, the model does not appear equally accurate across these two groups.
 
+## Files
+
+- [`recipe_popularity.ipynb`](https://github.com/mam084/Recipe_Data_Exploration/blob/main/recipe_popularity.ipynb): full analysis, from cleaning through the fairness test
+- `assets/plots/`: interactive Plotly charts embedded on this page
+
+*Built for DSC 259R in the UC San Diego M.S. in Data Science program. Data: Food.com recipes and interactions.*
